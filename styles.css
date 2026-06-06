@@ -496,7 +496,7 @@ ul, ol { list-style: none; }
 
 .problem-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--c-border);
   border: 1px solid var(--c-border);
@@ -513,15 +513,34 @@ ul, ol { list-style: none; }
 
 .problem-number {
   display: block;
-  font-family: var(--ff-display);
-  font-size: var(--sz-4xl);
   color: var(--c-border);
   line-height: 1;
   margin-bottom: var(--sp-6);
   transition: color var(--transition);
 }
 
-.problem-card:hover .problem-number { color: var(--c-red-light); }
+/* When problem-number contains SVG */
+.problem-number svg {
+  display: block;
+  stroke: var(--c-border);
+  transition: stroke var(--transition);
+}
+
+.problem-card:hover .problem-number svg {
+  stroke: var(--c-red);
+}
+
+.problem-card--cta {
+  background: var(--c-dark);
+}
+
+.problem-card--cta:hover { background: var(--c-dark-2); }
+
+.problem-card--cta .problem-number svg { stroke: rgba(255,255,255,0.2); }
+.problem-card--cta:hover .problem-number svg { stroke: var(--c-red); }
+
+.problem-card--cta h3 { color: #FFFFFF; }
+.problem-card--cta p  { color: rgba(255,255,255,0.5); }
 
 .problem-card h3 {
   font-family: var(--ff-body);
