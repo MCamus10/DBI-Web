@@ -348,7 +348,110 @@
 
 
 /* =============================================
-   6. FOOTER YEAR
+   6. PROJECT CAROUSELS
+   ============================================= */
+(function initCarousels() {
+  const carousels = document.querySelectorAll('.project-carousel');
+
+  carousels.forEach(carousel => {
+    const slides   = carousel.querySelectorAll('.carousel-slide');
+    const dots     = carousel.querySelectorAll('.carousel-dot');
+    const btnPrev  = carousel.querySelector('.carousel-btn--prev');
+    const btnNext  = carousel.querySelector('.carousel-btn--next');
+    const total    = slides.length;
+    if (!total) return;
+
+    let current   = 0;
+    let autoTimer = null;
+
+    // Inject counter badge
+    const counter = document.createElement('div');
+    counter.className = 'carousel-counter';
+    counter.setAttribute('aria-live', 'polite');
+    carousel.appendChild(counter);
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+
+      current = (index + total) % total;
+
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+      counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    function stopAuto() {
+      clearInterval(autoTimer);
+    }
+
+    // Initialize
+    goTo(0);
+    startAuto();
+
+    // Button controls
+    if (btnPrev) {
+      btnPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goTo(current - 1);
+        stopAuto();
+        startAuto();
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goTo(current + 1);
+        stopAuto();
+        startAuto();
+      });
+    }
+
+    // Dot controls
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goTo(i);
+        stopAuto();
+        startAuto();
+      });
+    });
+
+    // Keyboard navigation when focused
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { goTo(current - 1); stopAuto(); startAuto(); }
+      if (e.key === 'ArrowRight') { goTo(current + 1); stopAuto(); startAuto(); }
+    });
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) {
+        goTo(dx < 0 ? current + 1 : current - 1);
+        stopAuto();
+        startAuto();
+      }
+    }, { passive: true });
+  });
+})();
+
+
+/* =============================================
+   7. FOOTER YEAR
    ============================================= */
 (function setFooterYear() {
   const el = document.getElementById('footerYear');
