@@ -496,7 +496,7 @@ ul, ol { list-style: none; }
 
 .problem-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--c-border);
   border: 1px solid var(--c-border);
@@ -1225,8 +1225,6 @@ ul, ol { list-style: none; }
 
 /* ---- Tablet (≤ 1024px) ---- */
 @media (max-width: 1024px) {
-  .problem-grid { grid-template-columns: repeat(2, 1fr); }
-
   .faq-container,
   .contact-container { grid-template-columns: 1fr; gap: var(--sp-12); }
 
