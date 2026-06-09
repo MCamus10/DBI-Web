@@ -1,15 +1,208 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DBI Consultores — Modelos BIM coordinados que eliminan errores antes de construir. Consultoría BIM para constructoras y consultoras de arquitectura en Chile." />
-  <title>DBI Consultores | Consultoría BIM de Alto Desempeño</title>
+
+  <!-- ═══════════════════════════════════════
+       SEO PRIMARIO
+  ════════════════════════════════════════ -->
+  <title>DBI Consultores | Consultoría BIM Multidisciplinaria en Chile</title>
+  <meta name="description" content="DBI Consultores ofrece consultoría BIM para constructoras y arquitectos en Chile. Modelado y coordinación BIM de estructuras, instalaciones sanitarias, eléctricas y climatización. Detectamos interferencias antes de construir." />
+  <meta name="keywords" content="consultoría BIM Chile, modelado BIM, coordinación BIM, BIM constructoras, Revit Chile, detección de interferencias, modelo federado, BIM arquitectura, instalaciones BIM, estructuras BIM" />
+  <meta name="author" content="DBI Consultores SpA" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="theme-color" content="#D42B2B" />
+  <link rel="canonical" href="https://www.dbiconsultores.cl/" />
+
+  <!-- ═══════════════════════════════════════
+       OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+  ════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DBI Consultores" />
+  <meta property="og:title" content="DBI Consultores | Consultoría BIM Multidisciplinaria en Chile" />
+  <meta property="og:description" content="Modelado y coordinación BIM de todas las disciplinas de un proyecto: estructuras, agua potable, alcantarillado, electricidad y climatización. Detectamos interferencias antes de construir." />
+  <meta property="og:url" content="https://www.dbiconsultores.cl/" />
+  <meta property="og:image" content="https://www.dbiconsultores.cl/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="DBI Consultores — Consultoría BIM Chile" />
+  <meta property="og:locale" content="es_CL" />
+
+  <!-- ═══════════════════════════════════════
+       TWITTER / X CARD
+  ════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DBI Consultores | Consultoría BIM Multidisciplinaria en Chile" />
+  <meta name="twitter:description" content="Modelado y coordinación BIM de todas las disciplinas. Detectamos interferencias antes de construir." />
+  <meta name="twitter:image" content="https://www.dbiconsultores.cl/img/og-image.jpg" />
+  <meta name="twitter:image:alt" content="DBI Consultores — Consultoría BIM Chile" />
+
+  <!-- ═══════════════════════════════════════
+       DATOS ESTRUCTURADOS JSON-LD
+       Schema: LocalBusiness + Service + FAQPage
+  ════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.dbiconsultores.cl/#organization",
+        "name": "DBI Consultores SpA",
+        "alternateName": "DBI Consultores",
+        "url": "https://www.dbiconsultores.cl/",
+        "logo": "https://www.dbiconsultores.cl/img/icon.png",
+        "image": "https://www.dbiconsultores.cl/img/og-image.jpg",
+        "description": "Consultoría BIM multidisciplinaria para la industria de la construcción en Chile. Modelado y coordinación de estructuras, instalaciones sanitarias, eléctricas y climatización.",
+        "email": "contacto@dbiconsultores.cl",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Chile"
+        },
+        "serviceType": [
+          "Consultoría BIM",
+          "Modelado BIM",
+          "Coordinación BIM",
+          "Detección de interferencias",
+          "Modelo federado"
+        ],
+        "knowsAbout": [
+          "Building Information Modeling",
+          "Coordinación multidisciplinaria",
+          "Revit",
+          "Navisworks",
+          "IFC",
+          "Instalaciones sanitarias BIM",
+          "Estructuras BIM",
+          "MEP BIM"
+        ],
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.dbiconsultores.cl/#website",
+        "url": "https://www.dbiconsultores.cl/",
+        "name": "DBI Consultores",
+        "description": "Consultoría BIM multidisciplinaria para constructoras y arquitectos en Chile",
+        "publisher": { "@id": "https://www.dbiconsultores.cl/#organization" },
+        "inLanguage": "es-CL"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.dbiconsultores.cl/#webpage",
+        "url": "https://www.dbiconsultores.cl/",
+        "name": "DBI Consultores | Consultoría BIM Multidisciplinaria en Chile",
+        "isPartOf": { "@id": "https://www.dbiconsultores.cl/#website" },
+        "about": { "@id": "https://www.dbiconsultores.cl/#organization" },
+        "description": "Modelado BIM coordinado para constructoras, consultoras de arquitectura y actores de la industria de la construcción en Chile.",
+        "inLanguage": "es-CL",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": "https://www.dbiconsultores.cl/"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.dbiconsultores.cl/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿En qué etapa del proyecto conviene contratar servicios BIM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El mayor retorno se obtiene incorporando BIM desde la etapa de diseño, ya que permite detectar y resolver interferencias antes de que generen costos en obra. También trabajamos con proyectos en etapa de ejecución para generar modelos as-built o coordinar disciplinas que aún no estén integradas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Con qué software trabajan y qué entregables recibiré?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trabajamos principalmente con la suite Autodesk (Revit, Navisworks, AutoCAD) y software compatible con formatos IFC abiertos. Los entregables incluyen modelos BIM por disciplina, modelo federado coordinado, informes de interferencias, vistas y planos extraídos del modelo, y documentación técnica asociada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Mi equipo necesita saber BIM para trabajar con ustedes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Nos integramos al flujo de trabajo existente del cliente. Podemos actuar como consultores externos que entregan el modelo coordinado listo para usar, o de forma colaborativa con el equipo técnico interno."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo toma modelar un proyecto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los plazos dependen de la complejidad del proyecto, el nivel de detalle requerido (LOD) y la cantidad de disciplinas a coordinar. Proyectos de escala media pueden estar listos en 3 a 6 semanas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Trabajan solo en Chile o también en el extranjero?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nuestra operación principal es en Chile, con experiencia en proyectos desde Arica hasta la Patagonia. Dado que el trabajo BIM es 100% digital y colaborativo, también podemos trabajar con clientes en cualquier país de habla hispana."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.dbiconsultores.cl/#proyectos",
+        "name": "Proyectos BIM realizados por DBI Consultores",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Segunda Comisaría de Castro",
+            "description": "Modelado BIM multidisciplinario para Carabineros de Chile en la Región de Los Lagos."
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Centro de la Mujer de Magallanes",
+            "description": "Modelo BIM coordinado para equipamiento de atención social en la Región de Magallanes."
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Sistema de Control de Área de Tránsito (SCAT) — Arica",
+            "description": "Modelado BIM de infraestructura vial e instalaciones de control en entorno urbano."
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Subcomisaría Puerto Natales",
+            "description": "Modelado y coordinación BIM para instalación policial en la Patagonia chilena."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       RENDIMIENTO Y FUENTES
+  ════════════════════════════════════════ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&family=DM+Mono:wght@400;500&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="img/icon.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/icon.png" />
+  <link rel="apple-touch-icon" href="img/icon.png" />
 </head>
 <body>
 
@@ -36,7 +229,7 @@
     <a href="#contacto" class="nav-cta">Conversemos</a>
   </nav>
 
-  <main>
+  <main id="contenido-principal" aria-label="Contenido principal">
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
@@ -231,11 +424,11 @@
         <div class="projects-grid">
 
           <!-- PROYECTO 1 -->
-          <article class="project-card">
+          <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="project-carousel" aria-label="Imágenes del proyecto Segunda Comisaría de Castro">
               <div class="carousel-track">
                 <div class="carousel-slide active">
-                  <img src="img/2DA COMISARÍA 1.png" alt="Segunda Comisaría de Castro — Vista 1" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
+                  <img src="img/2DA COMISARÍA 1.png" alt="Modelo BIM coordinado Segunda Comisaría de Castro, Castro, Región de Los Lagos" fetchpriority="high" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
                   <div class="project-img-placeholder" aria-hidden="true"><span>IMAGEN DEL PROYECTO</span></div>
                 </div>
                 <div class="carousel-slide">
@@ -266,17 +459,17 @@
             </div>
             <div class="project-info">
               <span class="project-tag">Infraestructura Pública</span>
-              <h3>Segunda Comisaría de Castro</h3>
+              <h3 itemprop="name">Segunda Comisaría de Castro</h3>
               <p>Modelado BIM multidisciplinario coordinando arquitectura, estructuras e instalaciones para esta obra de Carabineros de Chile en la Región de Los Lagos.</p>
             </div>
           </article>
 
           <!-- PROYECTO 2 -->
-          <article class="project-card">
+          <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="project-carousel" aria-label="Imágenes del proyecto Centro de la Mujer de Magallanes">
               <div class="carousel-track">
                 <div class="carousel-slide active">
-                  <img src="img/CDM MAGALLANES 01.jpg" alt="Centro de la Mujer de Magallanes — Vista 1" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
+                  <img src="img/CDM MAGALLANES 01.jpg" alt="Modelo BIM coordinado Centro de la Mujer de Magallanes, Región de Magallanes" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
                   <div class="project-img-placeholder" aria-hidden="true"><span>IMAGEN DEL PROYECTO</span></div>
                 </div>
                 <div class="carousel-slide">
@@ -307,17 +500,17 @@
             </div>
             <div class="project-info">
               <span class="project-tag">Equipamiento Social</span>
-              <h3>Centro de la Mujer de Magallanes</h3>
+              <h3 itemprop="name">Centro de la Mujer de Magallanes</h3>
               <p>Modelo BIM coordinado para equipamiento de atención social en la Región de Magallanes, con especial énfasis en la coordinación de instalaciones en clima extremo.</p>
             </div>
           </article>
 
           <!-- PROYECTO 3 -->
-          <article class="project-card">
+          <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="project-carousel" aria-label="Imágenes del proyecto SCAT Arica">
               <div class="carousel-track">
                 <div class="carousel-slide active">
-                  <img src="img/SCAT ARICA 01.jpg" alt="SCAT Arica — Vista 1" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
+                  <img src="img/SCAT ARICA 01.jpg" alt="Modelo BIM Sistema de Control de Área de Tránsito SCAT, Arica, Chile" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
                   <div class="project-img-placeholder" aria-hidden="true"><span>IMAGEN DEL PROYECTO</span></div>
                 </div>
                 <div class="carousel-slide">
@@ -348,17 +541,17 @@
             </div>
             <div class="project-info">
               <span class="project-tag">Infraestructura Vial</span>
-              <h3>SCAT — Arica</h3>
+              <h3 itemprop="name">SCAT — Arica</h3>
               <p>Sistema de Control de Área de Tránsito para la ciudad de Arica. Modelado BIM de infraestructura vial e instalaciones de control, coordinando múltiples disciplinas en entorno urbano complejo.</p>
             </div>
           </article>
 
           <!-- PROYECTO 4 -->
-          <article class="project-card">
+          <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="project-carousel" aria-label="Imágenes del proyecto Subcomisaría Puerto Natales">
               <div class="carousel-track">
                 <div class="carousel-slide active">
-                  <img src="img/SUBOM NATALES 01.jpg" alt="Subcomisaría Puerto Natales — Vista 1" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
+                  <img src="img/SUBOM NATALES 01.jpg" alt="Modelo BIM coordinado Subcomisaría Puerto Natales, Patagonia chilena" loading="lazy" onerror="this.closest('.carousel-slide').classList.add('img-fallback')" />
                   <div class="project-img-placeholder" aria-hidden="true"><span>IMAGEN DEL PROYECTO</span></div>
                 </div>
                 <div class="carousel-slide">
@@ -389,7 +582,7 @@
             </div>
             <div class="project-info">
               <span class="project-tag">Infraestructura Pública</span>
-              <h3>Subcomisaría Puerto Natales</h3>
+              <h3 itemprop="name">Subcomisaría Puerto Natales</h3>
               <p>Modelado y coordinación BIM para instalación policial en la Patagonia chilena, integrando requerimientos funcionales de seguridad con las condiciones climáticas de la zona austral.</p>
             </div>
           </article>
@@ -608,7 +801,7 @@
       <div class="footer-legal">
         <span>© <span id="footerYear"></span> DBI Consultores SpA. Todos los derechos reservados.</span>
         <span class="footer-sep" aria-hidden="true">·</span>
-        <a href="mailto:contacto@dbiconsultores.cl">contacto@dbiconsultores.cl</a>
+        <address style="display:inline;font-style:normal;"><a href="mailto:contacto@dbiconsultores.cl">contacto@dbiconsultores.cl</a></address>
       </div>
     </div>
   </footer>
