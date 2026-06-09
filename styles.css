@@ -209,6 +209,8 @@ ul, ol { list-style: none; }
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
   transition: box-shadow var(--transition);
+  /* nav-menu ya NO es hijo del navbar (es hermano en el HTML),
+     por lo que el backdrop-filter aquí no crea problemas. */
 }
 
 .navbar.scrolled {
@@ -250,9 +252,21 @@ ul, ol { list-style: none; }
 }
 
 .nav-menu {
+  /* En escritorio: fixed alineado a la derecha del navbar,
+     mismo alto que .nav-inner (68px). El nav-menu es hermano
+     del header en el HTML para evitar el stacking context del
+     backdrop-filter, pero visualmente vive dentro de la barra. */
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 68px;
   display: flex;
   align-items: center;
   gap: var(--sp-8);
+  padding-right: var(--sp-6);
+  z-index: 101;
+  /* Sin fondo propio en escritorio: el navbar ya cubre visualmente */
+  background: transparent;
 }
 
 .nav-link {
@@ -1240,7 +1254,9 @@ ul, ol { list-style: none; }
   .nav-menu {
     position: fixed;
     inset: 0;
-    background: var(--c-bg);
+    height: 100dvh; /* anula el height: 68px de escritorio */
+    padding-right: 0; /* anula el padding-right de escritorio */
+    background: #FAFAFA;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1248,11 +1264,7 @@ ul, ol { list-style: none; }
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.28s ease;
-    /* z-index mayor que el navbar (100) para quedar encima de todo */
     z-index: 200;
-    /* Anula cualquier backdrop-filter heredado para garantizar fondo sólido */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
 
   .nav-menu.open {

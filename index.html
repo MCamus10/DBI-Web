@@ -23,15 +23,18 @@
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
       </button>
-      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Navegación principal">
-        <a href="#especialidades" class="nav-link">Especialidades</a>
-        <a href="#beneficios" class="nav-link">Beneficios</a>
-        <a href="#proyectos" class="nav-link">Proyectos</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#contacto" class="nav-cta">Conversemos</a>
-      </nav>
     </div>
   </header>
+  <!-- El nav-menu es hermano del header (NO hijo) para que el
+       backdrop-filter del navbar no cree un stacking context
+       que impida al menú cubrir la página en móvil. -->
+  <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Navegación principal">
+    <a href="#especialidades" class="nav-link">Especialidades</a>
+    <a href="#beneficios" class="nav-link">Beneficios</a>
+    <a href="#proyectos" class="nav-link">Proyectos</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#contacto" class="nav-cta">Conversemos</a>
+  </nav>
 
   <main>
 
