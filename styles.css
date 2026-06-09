@@ -310,7 +310,9 @@ ul, ol { list-style: none; }
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 110;
+  /* Debe quedar por encima del menú móvil (z-index: 200) */
+  z-index: 210;
+  position: relative;
 }
 
 .nav-toggle span {
@@ -1245,11 +1247,18 @@ ul, ol { list-style: none; }
     gap: var(--sp-8);
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--transition);
-    z-index: 100;
+    transition: opacity 0.28s ease;
+    /* z-index mayor que el navbar (100) para quedar encima de todo */
+    z-index: 200;
+    /* Anula cualquier backdrop-filter heredado para garantizar fondo sólido */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
-  .nav-menu.open { opacity: 1; pointer-events: all; }
+  .nav-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
 
   .nav-link { font-size: var(--sz-xl); }
   .nav-cta  { font-size: var(--sz-base); padding: var(--sp-4) var(--sp-8); }
