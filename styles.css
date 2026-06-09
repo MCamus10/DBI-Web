@@ -644,10 +644,16 @@ ul, ol { list-style: none; }
 }
 
 .benefit-result span {
+  display: inline-block;
   font-family: var(--ff-mono);
   font-size: var(--sz-xs);
-  color: var(--c-red);
-  letter-spacing: 0.05em;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: 0.06em;
+  background: rgba(212,43,43,0.35);
+  border: 1px solid rgba(212,43,43,0.55);
+  border-radius: 2px;
+  padding: 3px 10px;
 }
 
 /* ---- PROJECTS ---- */
