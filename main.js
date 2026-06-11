@@ -6,7 +6,7 @@
  *   2. FAQ: acordeón accesible
  *   3. Reveal: animaciones de scroll
  *   4. Char counter: textarea
- *   5. Contacto: validación + envío seguro por mailto
+ *   5. Contacto: validación + envío seguro por FormSubmit
  *   6. Footer year
  */
 
@@ -283,55 +283,70 @@
     clearStatus();
 
     /**
-     * MÉTODO DE ENVÍO — mailto:
+     * MÉTODO DE ENVÍO — FormSubmit (https://formsubmit.co)
      *
-     * Este método abre el cliente de correo predeterminado con los datos
-     * del formulario pre-completados. Es la opción más simple y segura
-     * para un HTML estático sin servidor backend.
+     * Servicio gratuito para formularios en sitios estáticos. No requiere
+     * registro previo: el primer envío activa la dirección y llega un correo
+     * de confirmación a DEST_EMAIL para autorizar los envíos futuros.
      *
-     * PARA PRODUCCIÓN: reemplaza este bloque por una llamada fetch()
-     * a tu backend (Node/PHP/Python) o a un servicio como EmailJS,
-     * Formspree, o AWS SES para envío sin abrir el cliente de correo.
+     * Características habilitadas:
+     *   - _subject   → asunto personalizado por envío
+     *   - _template  → plantilla visual "table" para mejor legibilidad
+     *   - _captcha   → desactivado (usamos honeypot propio)
+     *   - _autoresponse → mensaje automático al remitente
      *
-     * Dirección de destino — cambia por la dirección real:
+     * Para producción: asegúrate de confirmar el correo de activación
+     * que FormSubmit envía en el primer envío real.
      */
-    const DEST_EMAIL = 'contacto@dbiconsultores.cl';
+    const DEST_EMAIL = 'dbi41511@gmail.com';
+    const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${DEST_EMAIL}`;
 
-    const subject = encodeURIComponent(
-      `Consulta desde sitio web — ${safe.nombre}${safe.empresa ? ' / ' + safe.empresa : ''}`
-    );
+    const payload = {
+      nombre:        safe.nombre,
+      empresa:       safe.empresa || '(no indicada)',
+      email:         safe.email,
+      telefono:      safe.telefono,
+      consulta:      safe.consulta,
+      // Opciones de FormSubmit
+      _subject:      `Consulta desde sitio web — ${safe.nombre}${safe.empresa ? ' / ' + safe.empresa : ''}`,
+      _template:     'table',
+      _captcha:      'false',
+      _autoresponse: `Hola ${safe.nombre}, hemos recibido tu consulta y te responderemos en un plazo máximo de 24 horas hábiles. — DBI Consultores`,
+    };
 
-    const body = encodeURIComponent(
-      `Nombre: ${safe.nombre}\n` +
-      `Empresa: ${safe.empresa || '(no indicada)'}\n` +
-      `Teléfono: ${safe.telefono}\n` +
-      `Correo: ${safe.email}\n\n` +
-      `Consulta:\n${safe.consulta}`
-    );
-
-    const mailtoURL = `mailto:${DEST_EMAIL}?subject=${subject}&body=${body}`;
-
-    // Small delay for UX feedback
-    setTimeout(() => {
-      try {
-        window.location.href = mailtoURL;
-        showStatus(
-          'success',
-          '✓ Se abrió tu cliente de correo con el mensaje listo. ¡Revisa la ventana del correo y envíalo!'
-        );
-        form.reset();
-        document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
-        document.getElementById('consulta-count').textContent = '0 / 2000';
-      } catch (err) {
+    fetch(FORMSUBMIT_URL, {
+      method:  'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':        'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data && (data.success === 'true' || data.success === true)) {
+          showStatus(
+            'success',
+            '✓ ¡Mensaje enviado! Te responderemos en un plazo máximo de 24 horas hábiles.'
+          );
+          form.reset();
+          document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+          const countEl = document.getElementById('consulta-count');
+          if (countEl) countEl.textContent = '0 / 2000';
+        } else {
+          throw new Error(data?.message || 'Respuesta inesperada del servidor.');
+        }
+      })
+      .catch(() => {
         showStatus(
           'error-status',
-          'Hubo un problema al abrir tu cliente de correo. Por favor escríbenos directamente a contacto@dbiconsultores.cl'
+          'No fue posible enviar el mensaje. Por favor escríbenos directamente a contacto@dbiconsultores.cl'
         );
-      } finally {
+      })
+      .finally(() => {
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
-      }
-    }, 600);
+      });
   });
 
   function showStatus(type, message) {
